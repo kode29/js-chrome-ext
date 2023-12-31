@@ -125,6 +125,10 @@ const activateEyeDropper = async () => {
     try {
         // opening the eye dropper and retrieve the selected color
         const { sRGBHex } = await new EyeDropper().open();
+        // NOTE: Needs discussion or investigation -@kyle at 12/31/2023, 12:41:04 AM
+        // Firefox DOES NOT have a native EyeDropper API (although the MDN has documentation...?)
+        // Source: https://developer.mozilla.org/en-US/docs/Web/API/EyeDropper#browser_compatibility
+        // CanIUse: https://caniuse.com/mdn-api_eyedropper
 
         if (!pickedColors.includes(sRGBHex)){
             pickedColors.push(sRGBHex);
